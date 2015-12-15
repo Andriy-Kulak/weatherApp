@@ -1,15 +1,16 @@
 <p>
-  <a href="#/"> Back to Search</a>
+  <a href="#/">Back to Search</a>
 </p>
-
 
 Forecast for {{ city }}
 
 <hr />
-Days: <a ng-class="{ 'bg-primary': days === '2'}" href="#/forecast/2">2</a> |
-      <a ng-class="{ 'bg-primary': days === '5'}" href="#/forecast/5">5</a> |
-      <a ng-class="{ 'bg-primary': days === '7'}" href="#/forecast/7">7</a>
 
+Days: <a href="#/forecast/2" ng-class="{ 'bg-primary': days === '2' }">2</a> |
+      <a href="#/forecast/5" ng-class="{ 'bg-primary': days === '5' }">5</a> |
+      <a href="#/forecast/7" ng-class="{ 'bg-primary': days === '7' }">7</a>
+
+<hr />
 
 <div ng-repeat="w in weatherResult.list">
   <div class="row">
@@ -19,7 +20,14 @@ Days: <a ng-class="{ 'bg-primary': days === '2'}" href="#/forecast/2">2</a> |
           <h3 class="panel-title">{{ convertToDate(w.dt) | date: 'MMM d, y' }}</h3>
         </div>
         <div class="panel-body">
-          Daytime temperature: {{ convertToFahrenheit(w.temp.day) }}
+          Daytime temperature: {{ convertToFahrenheit(w.temp.day) }}&#186 F
+          <hr />
+          Cloudiness: {{ w.clouds }}% {{ w.deg }}
+          Humidity: {{ w.humidity }}%
+          ?? {{ w.weather }}
+          Test {{ getDescrip(w.weather) }}
+          Temp min: {{ convertToFahrenheit(w.temp.min) }}&#186 F
+          Temp max: {{ convertToFahrenheit(w.temp.max) }}&#186 F
         </div>
       </div>
     </div>
