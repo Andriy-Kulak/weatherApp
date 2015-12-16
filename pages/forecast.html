@@ -24,7 +24,7 @@ Days: <a href="#/forecast/2" ng-class="{ 'bg-primary': days === '2' }">2</a> |
           <hr />
           Cloudiness: {{ w.clouds }}% {{ w.deg }}
           Humidity: {{ w.humidity }}%
-          ?? {{ w.weather }}
+          ?? {{ w.weather.description }}
           Test {{ getDescrip(w.weather) }}
           Temp min: {{ convertToFahrenheit(w.temp.min) }}&#186 F
           Temp max: {{ convertToFahrenheit(w.temp.max) }}&#186 F

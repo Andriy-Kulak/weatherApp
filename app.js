@@ -5,22 +5,25 @@
 var weatherApp = angular.module('weatherApp', ['ngRoute', 'ngResource']);
 
 /**
- * Route
+ * Routes
  */
 weatherApp.config(function ($routeProvider) {
 
 	$routeProvider
 
+		//used for main page when use first enters the app
 		.when('/', {
 			templateUrl: 'pages/main.html',
 			controller: 'homeController'
 		})
 
+		//used when user searches for forecast of a particular city
 		.when('/forecast', {
 			templateUrl: 'pages/forecast.html',
 			controller: 'forecastController'
 		})
 
+		//used when user picks 2/5/7 days weater option in the app
 		.when('/forecast/:days', {
 			templateUrl: 'pages/forecast.html',
 			controller: 'forecastController'
@@ -28,7 +31,9 @@ weatherApp.config(function ($routeProvider) {
 
 });
 
-// SERVICES
+/**
+ * Service
+ */
 weatherApp.service('cityService', function() {
 
 	this.city = "New York, NY";
@@ -50,6 +55,9 @@ weatherApp.controller('homeController', ['$scope', '$location', 'cityService', f
 	// Will submit form when user presses enter
 	$scope.submit = function() {
 		$location.path("/forecast");
+
+		//test
+		
 	};
 
 }]);
@@ -62,8 +70,10 @@ weatherApp.controller('homeController', ['$scope', '$location', 'cityService', f
 weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParams', 'cityService',
 	function($scope, $resource, $routeParams, cityService) {
 
+	//takes input inputted on the main page
 	$scope.city = cityService.city;
 
+	//By default user gets a forecast of next two days
 	$scope.days = $routeParams.days || '2';
 
 	//API Get request for forecast
@@ -86,7 +96,9 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParam
 
 		//test
 		$scope.getDescrip = function(x) {
-			return x['description'];
+			var d = 'description';
+
+			return x[d];
 		}
 
 }]);
