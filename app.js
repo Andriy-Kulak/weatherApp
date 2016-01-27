@@ -5,7 +5,7 @@
 var weatherApp = angular.module('weatherApp', ['ngRoute', 'ngResource']);
 
 /**
- * Routes
+ * Routes (ngRoute)
  */
 weatherApp.config(function ($routeProvider) {
 
@@ -23,16 +23,17 @@ weatherApp.config(function ($routeProvider) {
 			controller: 'forecastController'
 		})
 
-		//used when user picks 2/5/7 days weater option in the app
+		//used when user picks 2/5/7 days weather option in the app
 		.when('/forecast/:days', {
 			templateUrl: 'pages/forecast.html',
 			controller: 'forecastController'
-		})
+		});
 
 });
 
 /**
  * Service
+ * (sets variables)
  */
 weatherApp.service('cityService', function() {
 
@@ -56,15 +57,19 @@ weatherApp.controller('homeController', ['$scope', '$location', 'cityService', f
 	$scope.submit = function() {
 		$location.path("/forecast");
 
-		//test
-		
+		//test pushing  city names to an array
+		$scope.cityList.push({
+			city: $scope.city
+		});
+
 	};
 
 }]);
 
 /**
  * Forecast Controller
- * $routeParams - allows you to retrieve the current set of route parameters.
+ * $routeParams - allows you to retrieve the current set of route parameters. In this case,
+ * it will be evaluating 'days' within the 3rd Route.
  * $resource - factory which creates a resource object that lets you interact with RESTful server-side data sources.
  */
 weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParams', 'cityService',

@@ -22,12 +22,10 @@ Days: <a href="#/forecast/2" ng-class="{ 'bg-primary': days === '2' }">2</a> |
         <div class="panel-body">
           Daytime temperature: {{ convertToFahrenheit(w.temp.day) }}&#186 F
           <hr />
-          Cloudiness: {{ w.clouds }}% {{ w.deg }}
-          Humidity: {{ w.humidity }}%
-          ?? {{ w.weather.description }}
-          Test {{ getDescrip(w.weather) }}
-          Temp min: {{ convertToFahrenheit(w.temp.min) }}&#186 F
-          Temp max: {{ convertToFahrenheit(w.temp.max) }}&#186 F
+          Cloudiness: {{ w.clouds }}% <br>
+          Humidity: {{ w.humidity }}% <br>
+          Temp min: {{ convertToFahrenheit(w.temp.min) }}&#186 F <br>
+          Temp max: {{ convertToFahrenheit(w.temp.max) }}&#186 F <br>
         </div>
       </div>
     </div>
