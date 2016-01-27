@@ -7,14 +7,7 @@
 
   <!-- load bootstrap and fontawesome via CDN -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-
-  <!-- load angular via CDN -->
-  <script src="https://code.angularjs.org/1.5.0-rc.0/angular.min.js"></script>
-  <script src="https://code.angularjs.org/1.5.0-rc.0/angular-route.min.js"></script>
-  <script src="https://code.angularjs.org/1.5.0-rc.0/angular-resource.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="app.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
 
 </head>
 <body>
@@ -29,7 +22,7 @@
       </div>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="#/"><i class="fa fa-home"></i> Home</a></li>
       </ul>
     </div>
 
@@ -43,12 +36,23 @@
 </div>
 
 
+<!-- load angular via CDN -->
+<script src="https://code.angularjs.org/1.5.0-rc.0/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.5.0-rc.0/angular-route.min.js"></script>
+<script src="https://code.angularjs.org/1.5.0-rc.0/angular-resource.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!--Angular files !-->
+<script src="app.js"></script>
+<script src="cityService.js"></script>
+<script src="forecastController.js"></script>
+<script src="homeController.js"></script>
+<script src="routes.js"></script>
+
 </body>
 
 <style>
-  body {
-    background-image: url('background/wov.png');
 
-  }
 </style>
 </html>
